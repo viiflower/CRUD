@@ -1,11 +1,15 @@
 FROM php:8.3-apache
 
-# Instalar PostgreSQL correctamente
+# Instalar PostgreSQL de forma más robusta
 RUN apt-get update && apt-get install -y \
+    postgresql \
+    postgresql-client \
     libpq-dev \
-    && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
-    && docker-php-ext-install pdo pdo_pgsql pgsql \
+    && docker-php-ext-install pgsql pdo pdo_pgsql \
     && apt-get clean
+
+# Verificar que las extensiones estén instaladas
+RUN php -m | grep pgsql
 
 # Habilitar mod_rewrite
 RUN a2enmod rewrite
