@@ -6,9 +6,9 @@ $user = getenv('DB_USER');
 $password = getenv('DB_PASSWORD');
 
 $conn_string = "host=$host port=5432 dbname=$dbname user=$user password=$password";
-$conn = pg_connect($conn_string);
+$conexion = pg_connect($conn_string); // Cambiado a $conexion
 
-if (!$conn) {
+if (!$conexion) {
     die("Error de conexión con la base de datos: " . pg_last_error());
 }
 ?>
