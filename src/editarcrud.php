@@ -4,7 +4,7 @@ include 'bdcrud.php';
 $id = $_GET["id"] ?? null;
 
 if (!$id) {
-    header("Location: indexcrud.php");
+    header("Location: index.php");
     exit;
 }
 
@@ -14,7 +14,7 @@ $result = pg_query_params($conexion, $query, array($id));
 $usuario = pg_fetch_assoc($result);
 
 if (!$usuario) {
-    header("Location: indexcrud.php?mensaje=Usuario no encontrado");
+    header("Location: index.php?mensaje=Usuario no encontrado");
     exit;
 }
 

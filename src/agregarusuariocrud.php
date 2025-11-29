@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result = pg_query_params($conexion, $query, array($nombre, $correo));
     
     if ($result) {
-        header("Location: indexcrud.php?mensaje=Usuario agregado correctamente");
+        header("Location: index.php?mensaje=Usuario agregado correctamente");
         exit;
     } else {
         $error = "Error al agregar usuario";

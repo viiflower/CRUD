@@ -4,7 +4,7 @@ include 'bdcrud.php';
 $id = $_GET["id"] ?? null;
 
 if (!$id) {
-    header("Location: indexcrud.php");
+    header("Location: index.php");
     exit;
 }
 
@@ -13,7 +13,7 @@ if (isset($_POST['confirmar'])) {
     $result = pg_query_params($conexion, $query, array($id));
     
     if ($result) {
-        header("Location: indexcrud.php?mensaje=Usuario eliminado correctamente");
+        header("Location: index.php?mensaje=Usuario eliminado correctamente");
         exit;
     } else {
         $error = "Error al eliminar usuario";
